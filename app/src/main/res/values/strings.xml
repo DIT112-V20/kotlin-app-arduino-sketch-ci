@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MyGitHubApp</string>
+    <string name="enter_a_github_username">Enter a GitHub username</string>
+    <string name="search">Search</string>
+    <string name="internal_server_error">Internal Server Error</string>
+    <string name="unauthorized">Unauthorized</string>
+    <string name="forbidden">Forbidden</string>
+    <string name="user_not_found">User not found</string>
+    <string name="try_another_user">Try another user</string>
+    <string name="unable_to_get_repos">Unable to get repositories</string>
+    <string name="username_cannot_be_empty">Username cannot be empty</string>
+    <string name="repo_private">Private</string>
+    <string name="repo_public">Public</string>
+    <string name="number_of_repos">%1$d Repositories</string>
+</resources>
