@@ -26,7 +26,7 @@ jobs:
           arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 arduino/SmartcarWebserverWithClass/SmartcarWebserverWithClass.ino
           arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 arduino/SmartcarWebserverTestable/SmartcarWebserverTestable.ino
 
-  unit-tests:
+  run-unit-tests:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
