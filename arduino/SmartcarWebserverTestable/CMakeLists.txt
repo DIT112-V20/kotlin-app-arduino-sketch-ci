@@ -1,0 +1,1 @@
+set(sketch_dir ${CMAKE_CURRENT_SOURCE_DIR} PARENT_SCOPE)
