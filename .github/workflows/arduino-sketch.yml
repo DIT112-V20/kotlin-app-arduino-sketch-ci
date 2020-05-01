@@ -21,4 +21,7 @@ jobs:
           arduino-cli core install esp32:esp32 --additional-urls "https://dl.espressif.com/dl/package_esp32_index.json"
           arduino-cli lib install "Smartcar shield"
       - name: Build sketch
-        run: arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 arduino/ObstacleAvoider/ObstacleAvoider.ino
+        run: |
+          arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 arduino/SmartcarWebserver/SmartcarWebserver.ino
+          arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 arduino/SmartcarWebserverWithClass/SmartcarWebserverWithClass.ino
+          arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 arduino/SmartcarWebserverTestable/SmartcarWebserverTestable.ino
