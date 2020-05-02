@@ -41,7 +41,7 @@ Arduino sketch, for testability. The following sketches are included:
 * [SmartcarWebserverTestable](arduino/SmartcarWebserverTestable)
   * A testable sketch without any stubs or fakes, based on the
   [inversion of control](https://en.wikipedia.org/wiki/Inversion_of_control) principle.
-  * [Unit tests](test/ut/SmartCarWebController_test.cpp)
+  * [Unit tests](arduino/test/ut/SmartCarWebController_test.cpp)
 
 ### CI
 
