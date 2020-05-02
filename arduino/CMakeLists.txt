@@ -26,5 +26,5 @@ add_compile_options(
         -Werror
 )
 
-add_subdirectory(arduino/SmartcarWebserverTestable)
-add_subdirectory(arduino/test)
+add_subdirectory(SmartcarWebserverTestable)
+add_subdirectory(test)

@@ -36,7 +36,7 @@ jobs:
     env:
       CC: ${{ matrix.compiler.cc }}
       CXX: ${{ matrix.compiler.cxx }}
-      build_dir: build
+      build_dir: arduino/build
 
     steps:
       - uses: actions/checkout@v2
@@ -51,6 +51,4 @@ jobs:
       - name: Build unit tests
         run: cmake --build ${build_dir} -- -j$(nproc)
       - name: Run unit tests
-        run: |
-          cd ${build_dir}/arduino/test
-          ctest
+        run: cd ${build_dir}/test && ctest
