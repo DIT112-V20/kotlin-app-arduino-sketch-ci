@@ -50,5 +50,42 @@ The following activities take place on CI:
 * Build the Arduino sketch for the `ESP32 DOIT Devkit V1` board
 * Run the unit tests for the unit-testable sketch
 
+## Endpoint emulator
+
+Projects involving hardware pose some *physical* limitations on your way of working
+since the software you develop, eventually, has to run on the target device and not
+your computer.
+
+If each team member has access to the hardware, then this is not much of a problem.
+However, there are cases where this hardware is not readily available for everyone
+and has to be shared. In such cases, the team should try to decrease its dependency
+to hardware so to minimize bottlenecks and risks related to this constraint.
+
+One way to achieve this when using the ESP32 enabled Smartcar platform is creating a
+dummy endpoint that runs on the developer's machine and responds in the same or similar
+way as a Smartcar would. Doing that, the team can agree on the **inputs** and **outputs**
+of their (unavailable) hardware and make the dummy endpoint respond accordingly.<br>
+This can decrease the need to have constant access to the *actual* hardware since a
+developer may conduct their work according to the **agreed communication interface**.
+As long as the endpoint emulator is running, then it should respond (from a web request
+pespective) like the Smartcar.
+
+Similarly, the developer(s) who is/are tasked with writing firmware for the Smartcar,
+do not need to have access to the *real application* or client. To emulate requests coming
+from the application or the client, they can use their **browser** or software such as the
+[ARC](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo).
+
+For example, to set the speed to `60` without the application that normally controls
+the Smartcar, one would have to visit the following URL on their browser:
+`http://smartcar.local/drive?speed=65`.<br>
+This way, the dependency on **synchronous collaboration** between developers that work
+on the app and those that work on the Smartcar, is decreased.
+
+[smartcar_endpoint.py](endpoint-emulator/smartcar_endpoint.py) uses Python3 and Flask
+to expose the same functionality as the Arduino sketches. The main difference from a
+client's perspective is that a different IP is used.<br>
+That being said, there are probably workarounds (outside the scope of this tutorial) for
+this is one *must* use the same IP/hostname as the Smartcar.
+
 [Android CI]: https://github.com/DIT112-V20/kotlin-app-arduino-sketch-ci/workflows/Android%20CI/badge.svg
 [Arduino CI]: https://github.com/DIT112-V20/kotlin-app-arduino-sketch-ci/workflows/Arduino%20CI/badge.svg
