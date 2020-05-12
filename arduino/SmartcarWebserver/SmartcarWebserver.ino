@@ -37,6 +37,7 @@ void setup(void)
 
     if (MDNS.begin("smartcar"))
     {
+        MDNS.addService("http", "tcp", 80);
         Serial.println("MDNS responder started");
     }
 
