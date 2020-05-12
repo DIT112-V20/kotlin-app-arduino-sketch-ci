@@ -1,0 +1,4 @@
+<resources>
+    <string name="intro_text">Hello World</string>
+    <string name="app_name">Local Device Name Resolution</string>
+</resources>
