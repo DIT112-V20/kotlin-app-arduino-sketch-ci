@@ -12,9 +12,13 @@ jobs:
           java-version: 1.8
       - name: Clone Repo
         uses: actions/checkout@v2
-      - name: Build app
+      - name: Build GitHubViewerApp
         run: |
-          cd android
+          cd android/GitHubViewerApp
+          ./gradlew build --stacktrace
+      - name: Build LocalDeviceNameResolution app
+        run: |
+          cd android/LocalDeviceNameResolution
           ./gradlew build --stacktrace
 
   run-unit-tests:
@@ -26,9 +30,13 @@ jobs:
           java-version: 1.8
       - name: Clone Repo
         uses: actions/checkout@v2
-      - name: Run unit tests
+      - name: Run unit tests for GitHubViewerApp
         run: |
-          cd android
+          cd android/GitHubViewerApp
+          ./gradlew test --info
+      - name: Run unit tests for LocalDeviceNameResolution app
+        run: |
+          cd android/LocalDeviceNameResolution
           ./gradlew test --info
 
   run-instrumented-tests:
@@ -36,8 +44,13 @@ jobs:
     steps:
       - name: Clone Repo
         uses: actions/checkout@v2
-      - name: Run instrumented tests
+      - name: Run instrumented tests for GitHubViewerApp
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: cd android && ./gradlew connectedAndroidTest
+          script: cd android/GitHubViewerApp && ./gradlew connectedAndroidTest
+      - name: Run instrumented tests for LocalDeviceNameResolution app
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: cd android/LocalDeviceNameResolution && ./gradlew connectedAndroidTest
