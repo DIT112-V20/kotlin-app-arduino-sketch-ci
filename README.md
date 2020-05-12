@@ -8,17 +8,24 @@ an Android emulator (AVD) for running instrumented tests.
 
 ## Android
 
-### Kotlin app
+### GitHub repository viewer app (Kotlin)
 
 The Kotlin app is a simple GitHub browser based on the great
 [tutorial](https://github.com/linero-tech/course_github_browser) by
 [@hlinero](https://github.com/hlinero).
 
+### `.local` device name resolution (JAVA)
+
+The Java app demonstrates how to resolve the IP of devices with `.local` hostnames
+on Android. Android devices are not able to directly resolve such hostnames, which
+makes it tricky when needing to interface with IoT devices which do not come with
+predefined IP addresses.
+
 ### CI
 
 The following activities take place on CI:
 
-* Build the Android app
+* Build the Android apps
 * Run the unit tests
 * Run the instrumented tests on an emulator
 
