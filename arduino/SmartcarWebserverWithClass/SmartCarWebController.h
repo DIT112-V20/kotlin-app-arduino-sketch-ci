@@ -18,9 +18,10 @@ public:
 
 private:
     WebServer mWebServer{80};
-    BrushedMotor mLeftMotor{smartcarlib::pins::v2::leftMotorPins};
-    BrushedMotor mRightMotor{smartcarlib::pins::v2::rightMotorPins};
+    ArduinoRuntime mArduinoRuntime;
+    BrushedMotor mLeftMotor{mArduinoRuntime, smartcarlib::pins::v2::leftMotorPins};
+    BrushedMotor mRightMotor{mArduinoRuntime, smartcarlib::pins::v2::rightMotorPins};
     DifferentialControl mControl{mLeftMotor, mRightMotor};
-    GY50 mGyroscope{11};
+    GY50 mGyroscope{mArduinoRuntime, 11};
     HeadingCar mCar{mControl, mGyroscope};
 };
